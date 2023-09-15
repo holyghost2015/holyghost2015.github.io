@@ -49,11 +49,12 @@ var setCookie = function(){
 
 onload = function(){
     initialize();
+    var Read = [];
     var Amountread = [];
     cook = document.cookie;
-    AmountRead = cook.split("=")
-    if(AmountRead[1]==undefined)AmountRead="";
-    AmountRead = AmountRead[1].split(" ");
+    Read = cook.split("=")
+    if(Read[1]==undefined){Read[1]="";}
+    AmountRead = Read[1].split(" ");
     alert(AmountRead);
     this.setInterval(update, 1000);
 }
