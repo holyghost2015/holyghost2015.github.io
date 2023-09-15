@@ -49,7 +49,7 @@ var setCookie = function(){
 
 onload = function(){
     initialize();
-    var Amountread[];
+    var Amountread = [];
     cook = document.cookie;
     AmountRead = cook.split("=")
     AmountRead = AmountRead[1].split(" ");
