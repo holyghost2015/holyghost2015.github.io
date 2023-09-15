@@ -41,7 +41,7 @@ var initialize = function(){
 var setCookie = function(){
     var cook = "Amount=";
     for(var i=1; i<=26;i++){
-        cook += Amount[i] + "%20";
+        cook += Amount[i] + " ";
     }
     cook += "; expires=Tue, 19 Jan 2038 03:14:07 GMT"
     document.cookie = cook;
