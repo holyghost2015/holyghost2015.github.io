@@ -50,7 +50,8 @@ var setCookie = function(){
 onload = function(){
     initialize();
     cook = document.cookie;
-    var AmountRead = cook.split("=")[1].split(" ");
+    var AmountRead = cook.split("=")
+    AmountRead = AmountRead[1].split(" ");
     alert(AmountRead);
     this.setInterval(update, 1000);
 }
