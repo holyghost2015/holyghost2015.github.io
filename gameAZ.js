@@ -52,7 +52,7 @@ onload = function(){
     var Amountread = [];
     cook = document.cookie;
     AmountRead = cook.split("=")
-    if(AmountRead[1]=undefined)AmountRead="";
+    if(AmountRead[1]==undefined)AmountRead="";
     AmountRead = AmountRead[1].split(" ");
     alert(AmountRead);
     this.setInterval(update, 1000);
