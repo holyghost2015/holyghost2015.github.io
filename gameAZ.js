@@ -46,7 +46,6 @@ var setCookie = function(){
     console.log(cook);
     cook += "; path=/";
     cook += "; expires=Tue, 19 Jan 2038 03:14:07 GMT"
-    cook += "; domain=file:///C:/Users/lukas/Documents/studium/WebDev/sourcecode/gameAZ/gameAZ.html";
     console.log(cook);
     document.cookie = cook;
     console.log(document.cookie);
