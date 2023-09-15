@@ -49,7 +49,9 @@ var setCookie = function(){
 
 onload = function(){
     initialize();
-    this.alert(document.cookie);
+    cook = document.cookie;
+    var AmountRead = cook.split("=")[1].split(" ");
+    alert(AmountRead);
     this.setInterval(update, 1000);
 }
 
