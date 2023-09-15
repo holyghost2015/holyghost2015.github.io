@@ -55,8 +55,6 @@ onload = function(){
     initialize();
     this.alert(document.cookie);
     this.setInterval(update, 1000);
-    document.cookie = "Test=Testttt";
-    this.alert(document.cookie);
 }
 
 var update = function(){
