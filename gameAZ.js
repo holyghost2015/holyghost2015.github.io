@@ -39,16 +39,12 @@ var initialize = function(){
 }
 
 var setCookie = function(){
-    var cook = "Amount=12";
-    /*for(var i=1; i<=26;i++){
+    var cook = "Amount=";
+    for(var i=1; i<=26;i++){
         cook += Amount[i] + "%20";
-    }*/
-    console.log(cook);
+    }
     cook += "; expires=Tue, 19 Jan 2038 03:14:07 GMT"
-    console.log(cook);
     document.cookie = cook;
-    console.log(document.cookie);
-    console.log("Cookie: "+document.cookie);
 }
 
 onload = function(){
