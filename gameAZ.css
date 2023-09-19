@@ -3,9 +3,11 @@ div.frame {
     width: 100px;
     border: 2px orange solid;
     border-radius: 5px;
+    margin: 10px;
 }
 div.name {
     text-align: center;
+    margin-bottom: 20px;
 }
 div.amount {
     text-align: center;
@@ -17,5 +19,4 @@ div.buy {
 button {
     width: 45px;
     height: 20px;
-    margin-top: 27px;
 }
