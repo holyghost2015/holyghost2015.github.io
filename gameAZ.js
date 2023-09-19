@@ -5,6 +5,7 @@ var cost = function(caller){
 }
 
 var buy = function(caller) {
+    alert("geht noch");
     event.stopPropagation();
     if(canbuy(caller)){
         Amount[caller+1] -= cost(caller);
