@@ -25,6 +25,7 @@ var produce = function(caller){
 }
 
 
+
 var Amount = [];
 var AmountBuy = [];
 var AmountProd = [];
@@ -36,6 +37,16 @@ var initialize = function(){
         AmountBuy[i]=1;
         AmountProd[i]=1;
         
+    }
+}
+
+var setDisplay = function(){
+    var field = document.getElementById("Amount0");
+    var position = 0;
+    while(field != undefined){
+        field.textContent = Amount[position];
+        position++;
+        field = document.getElementById("Amount" + position);
     }
 }
 
@@ -67,6 +78,6 @@ onload = function(){
 
 var update = function(){
     //calculate();
-    //setDisplay();
+    setDisplay();
     setCookie();
 }
