@@ -57,11 +57,11 @@ onload = function(){
     Read = cook.split("=")
     if(Read[1]==undefined){Read[1]="";}
     AmountRead = Read[1].split(" ");
-    Alert(AmountRead);
-    /*for(var i=1; i<AmountRead.length; i++){
+    alert(AmountRead);
+    for(var i=1; i<AmountRead.length; i++){
         Amount[i]=AmountRead[i];
     }
-    alert(Amount);*/
+    alert(Amount);
     this.setInterval(update, 1000);
 }
 
