@@ -58,7 +58,7 @@ var initialize = function(){
 var calculate = function(){
     for(var i=0; i<26; i++){
         if(AmountProducers[i]>0){
-            if(i==0;){
+            if(i==0){
                 Amount[0]+=AmountToProd[0]*AmountProducers[0];
             } else if(Amount[i-1]>=(AmountProducers[i]*10)){
                 Amount[i-1] -= AmountProducers[i]*10;
