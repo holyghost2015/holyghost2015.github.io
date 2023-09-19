@@ -1,4 +1,4 @@
-var cost(caller){
+var cost = function(caller){
     var amount = AmountProd[caller];
     var amountBuy = AmountBuy[caller];
     return amount*amountBuy + ((amountBuy +1)*amountBuy)/2;
