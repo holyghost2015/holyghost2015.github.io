@@ -22,7 +22,7 @@ var canbuy = function(caller){
 
     var BuyCosts = cost(caller);
 
-    return BuyCosts < available;
+    return BuyCosts <= available;
 }
 
 var produce = function(caller){
