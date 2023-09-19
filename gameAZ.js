@@ -1,7 +1,14 @@
-var buy = function(caller) {
-    alert(caller);
+var cost(caller){
+    var amount = AmountProd[caller];
+    var amountBuy = AmountBuy[caller];
+    return amount*amountBuy + ((amountBuy +1)*amountBuy)/2;
+}
 
-    canbuy(caller);
+var buy = function(caller) {
+    if(canbuy(caller)){
+        amount[caller+1] -= cost(caller);
+        amountProd[caller] += amountBuy[caller];
+    }
 
 }
 var buyall = function(caller) {
@@ -9,9 +16,11 @@ var buyall = function(caller) {
 }
 
 var canbuy = function(caller){
-    var amount = Ammount[caller];
-    var amountBuy = AmountBuy[caller];
+    var available = Amount[caller+1];
 
+    var BuyCosts = cost(caller);
+
+    return BuyCosts < available;
 }
 
 var produce = function(caller){
