@@ -46,12 +46,28 @@ var AmountProducers = [];
 
 
 var initialize = function(){
-    for(var i=0; i<26;i++){
+    for(var i=0; i<26; i++){
         Amount[i]=0;
         AmountToBuy[i]=1;
         AmountToProd[i]=1;
         AmountProducers[i]=0;
         
+    }
+}
+
+var calculate = function(){
+    for(var i=0; i<26; i++){
+        if(AmountProducers[i]>0){
+            if(i==0;){
+                Amount[0]+=AmountToProd[0]*AmountProducers[0];
+            } else if(Amount[i-1]>=(AmountProducers[i]*10)){
+                Amount[i-1] -= AmountProducers[i]*10;
+                Amount[i] += AmountToProd[0]*AmountProducers[0];
+            } else {
+                Amount[i] += Math.floor(Amount[i-1]/10)*AmountToProd[i];
+                Amount[i-1]=Amount[i-1]%10;
+            }
+        }
     }
 }
 
@@ -71,7 +87,7 @@ var setDisplay = function(){
 
 var setCookie = function(){
     var cook = "Amount=";
-    for(var i=0; i<26;i++){
+    for(var i=0; i<26; i++){
         cook += Amount[i] + " ";
     }
     cook += "; expires=Tue, 19 Jan 2038 03:14:07 GMT"
