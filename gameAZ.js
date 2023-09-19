@@ -66,5 +66,7 @@ onload = function(){
 }
 
 var update = function(){
+    //calculate();
+    //setDisplay();
     setCookie();
 }
