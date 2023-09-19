@@ -22,6 +22,8 @@ var produce = function(caller){
         Amount[caller-1]-=10;
         Amount[caller]+=AmountProd[caller];
     }
+    
+    setDisplay();
 }
 
 
