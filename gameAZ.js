@@ -1,13 +1,13 @@
 var cost = function(caller){
-    var amount = AmountProd[caller];
-    var amountBuy = AmountBuy[caller];
+    var amount = AmountProducers[caller];
+    var amountBuy = AmountToBuy[caller];
     return amount*amountBuy + ((amountBuy +1)*amountBuy)/2;
 }
 
 var buy = function(caller) {
     if(canbuy(caller)){
-        amount[caller+1] -= cost(caller);
-        amountProd[caller] += amountBuy[caller];
+        Amount[caller+1] -= cost(caller);
+        AmountProducers[caller] += AmountToBuy[caller];
     }
 
 }
@@ -26,10 +26,10 @@ var canbuy = function(caller){
 var produce = function(caller){
     Amount[caller]=+Amount[caller];
     if(caller==0){
-        Amount[caller]+=AmountProd[caller];
+        Amount[caller]+=AmountToProd[caller];
     }else if(Amount[caller-1]>=10){
         Amount[caller-1]-=10;
-        Amount[caller]+=AmountProd[caller];
+        Amount[caller]+=AmountToProd[caller];
     }
     
     setDisplay();
@@ -38,15 +38,17 @@ var produce = function(caller){
 
 
 var Amount = [];
-var AmountBuy = [];
-var AmountProd = [];
+var AmountToBuy = [];
+var AmountToProd = [];
+var AmountProducers = [];
 
 
 var initialize = function(){
     for(var i=0; i<26;i++){
         Amount[i]=0;
-        AmountBuy[i]=1;
-        AmountProd[i]=1;
+        AmountToBuy[i]=1;
+        AmountToProd[i]=1;
+        AmountProducers[i]=1;
         
     }
 }
@@ -55,7 +57,11 @@ var setDisplay = function(){
     var field = document.getElementById("Amount0");
     var position = 0;
     while(field != undefined){
-        field.textContent = Amount[position];
+        var content = Amount[position];
+        if(AmountProducers[position] != 0){
+            content += " / +" + AmountProducers[position];
+        }
+        field.textContent = content;
         position++;
         field = document.getElementById("Amount" + position);
     }
