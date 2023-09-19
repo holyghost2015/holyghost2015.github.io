@@ -15,6 +15,7 @@ var canbuy = function(caller){
 }
 
 var produce = function(caller){
+    Amount[caller]=+Amount[caller];
     if(caller==1){
         Amount[caller]+=AmountProd[caller];
     }else if(Amount[caller-1]>=10){
