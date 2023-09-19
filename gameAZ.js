@@ -16,7 +16,7 @@ var canbuy = function(caller){
 
 var produce = function(caller){
     Amount[caller]=+Amount[caller];
-    if(caller==1){
+    if(caller==0){
         Amount[caller]+=AmountProd[caller];
     }else if(Amount[caller-1]>=10){
         Amount[caller-1]-=10;
@@ -31,7 +31,7 @@ var AmountProd = [];
 
 
 var initialize = function(){
-    for(var i=1; i<=26;i++){
+    for(var i=0; i<26;i++){
         Amount[i]=0;
         AmountBuy[i]=1;
         AmountProd[i]=1;
@@ -41,7 +41,7 @@ var initialize = function(){
 
 var setCookie = function(){
     var cook = "Amount=";
-    for(var i=1; i<=26;i++){
+    for(var i=0; i<26;i++){
         cook += Amount[i] + " ";
     }
     cook += "; expires=Tue, 19 Jan 2038 03:14:07 GMT"
