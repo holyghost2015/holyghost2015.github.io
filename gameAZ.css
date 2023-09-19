@@ -11,6 +11,7 @@ div.name {
 }
 div.amount {
     text-align: center;
+    margin-bottom: 20px;
 }
 div.buy {
     text-align: center;
