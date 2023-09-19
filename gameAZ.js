@@ -45,6 +45,7 @@ var setCookie = function(){
     }
     cook += "; expires=Tue, 19 Jan 2038 03:14:07 GMT"
     document.cookie = cook;
+    console.log(document.cookie);
 }
 
 onload = function(){
