@@ -9,23 +9,29 @@
     <script src='gameAZ.js'></script>
 </head>
 <body>
-    <div id="A" class="frame" onclick="produce(1)">
-        <div class=name>
-            test
+    <div id="A" class="frame" onclick="produce(0)">
+        <div class="name">
+            A
+        </div>
+        <div class="amount">
+            0
+        </div>
+        <div class="buy">
+            <button onclick="buy(0)"></button>
+            <button onclick="buyall(0)"></button>
+        </div>
+    </div>
+
+    <div id="B" class="frame" onclick="produce(1)">
+        <div class="name">
+            B
+        </div>
+        <div class="amount">
+            0
         </div>
         <div class="buy">
             <button onclick="buy(1)"></button>
             <button onclick="buyall(1)"></button>
-        </div>
-    </div>
-
-    <div id="B" class="frame" onclick="produce(2)">
-        <div class=name>
-            test
-        </div>
-        <div class="buy">
-            <button onclick="buy(2)"></button>
-            <button onclick="buyall(2)"></button>
         </div>
     </div>
 </body>
