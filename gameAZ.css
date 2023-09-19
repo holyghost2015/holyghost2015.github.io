@@ -6,7 +6,9 @@ div.frame {
 }
 div.name {
     text-align: center;
-    line-height: 50px;
+}
+div.amount {
+    text-align: center;
 }
 div.buy {
     text-align: center;
