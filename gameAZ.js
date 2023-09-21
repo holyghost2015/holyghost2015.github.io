@@ -121,7 +121,7 @@ var update = function(){
 }
 
 var testForUnlock = function() {
-    if(amount[last]>=10){
+    if(Amount[last]>=10){
         last++;
         add(last);
     }
