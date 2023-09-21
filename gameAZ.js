@@ -51,7 +51,7 @@ var initialize = function(){
         AmountProducers[i]=0;
         
     }
-    last = 0;
+    last = 1;
 }
 
 var calculate = function(){
@@ -121,7 +121,7 @@ var update = function(){
 }
 
 var testForUnlock = function() {
-    if(amount[last]>=10;){
+    if(amount[last]>=10){
         last++;
         add(last);
     }
