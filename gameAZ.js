@@ -128,7 +128,7 @@ var testForUnlock = function() {
 }
 
 var add = function(toAdd){
-    var newNode = documment.createElement("div");
+    var newNode = document.createElement("div");
     newNode.classList.add("frame");
     newNode.id = "frame"+toAdd;
     newNode.onclick=produce(toAdd);
