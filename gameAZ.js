@@ -1,3 +1,10 @@
+var Amount = [];
+var AmountToBuy = [];
+var AmountToProd = [];
+var AmountProducers = [];
+var last;
+
+
 var cost = function(caller){
     var amount = AmountProducers[caller];
     var amountBuy = AmountToBuy[caller];
@@ -32,17 +39,9 @@ var produce = function(caller){
         Amount[caller-1]-=10;
         Amount[caller]+=AmountToProd[caller];
     }
-    
+    testForUnlock();
     setDisplay();
 }
-
-
-
-var Amount = [];
-var AmountToBuy = [];
-var AmountToProd = [];
-var AmountProducers = [];
-
 
 var initialize = function(){
     for(var i=0; i<26; i++){
@@ -52,6 +51,7 @@ var initialize = function(){
         AmountProducers[i]=0;
         
     }
+    last = 0;
 }
 
 var calculate = function(){
@@ -95,24 +95,75 @@ var setCookie = function(){
     console.log(document.cookie);
 }
 
-onload = function(){
-    initialize();
+var readCookie = function(){
     var Read = [];
     var Amountread = [];
     cook = document.cookie;
     Read = cook.split("=")
     if(Read[1]==undefined){Read[1]="";}
     AmountRead = Read[1].split(" ");
-    alert(AmountRead);
     for(var i=0; i<AmountRead.length; i++){
         Amount[i]=AmountRead[i];
     }
-    alert(Amount);
+}
+
+onload = function(){
+    initialize();
+    readCookie();
     this.setInterval(update, 1000);
 }
 
 var update = function(){
     calculate();
+    testForUnlock();
     setDisplay();
     setCookie();
+}
+
+var testForUnlock = function() {
+    if(amount[last]>=10;){
+        last++;
+        add(last);
+    }
+}
+
+var add = function(toAdd){
+    var newNode = documment.createElement("div");
+    newNode.classList.add("frame");
+    newNode.id = "frame"+toAdd;
+
+    //Name
+    var letterNode = document.createElement("div");
+    letterNode.classList.add("name");
+    var letterText = document.createTextNode("Test");
+    letterNode.appendChild(letterText);
+
+    //Amount
+    var amountNode = document.createElement("div");
+    amountNode.classList.add("amount");
+    amountNode.id = "amount"+toAdd;
+    var amountText = document.createTextNode("0");
+    amountNode.appendChild(amountText);
+
+    //Buttons
+    var buyNode = document.createElement("div");
+    buyNode.classList.add("buy");
+    var buyButton = document.createElement("button");
+    buyButton.type="button";
+    buyButton.onclick=buy(toAdd);
+    var buyAllButton = document.createElement("button");
+    buyAllButton.type="button";
+    buyAllButton.onclick=buyAll(toAdd);
+
+    buyNode.appendChild(buyButton);
+    buyNode.appendChild(buyAllButton);
+
+    //insert in main node
+    newNode.appendChild(letterNode);
+    newNode.appendChild(amountNode);
+    newNode.appendChild(buyNode);
+
+    //append to html
+    var lastNode = document.getElementById("frame"+(toAdd-1));
+    lastNode.insertAdjacentElement("afterend", newNode);    
 }
