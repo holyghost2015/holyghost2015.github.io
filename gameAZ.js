@@ -112,7 +112,7 @@ onload = function(){
 }
 
 var update = function(){
-    //calculate();
+    calculate();
     setDisplay();
     setCookie();
 }
