@@ -151,10 +151,10 @@ var add = function(toAdd){
     buyNode.classList.add("buy");
     var buyButton = document.createElement("button");
     buyButton.type="button";
-    buyButton.onclick=buy(event, toAdd);
+    //buyButton.onclick=buy(event, toAdd);
     var buyAllButton = document.createElement("button");
     buyAllButton.type="button";
-    buyAllButton.onclick=buyAll(event, toAdd);
+    //buyAllButton.onclick=buyAll(event, toAdd);
 
     buyNode.appendChild(buyButton);
     buyNode.appendChild(buyAllButton);
