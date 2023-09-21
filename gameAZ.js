@@ -131,11 +131,12 @@ var add = function(toAdd){
     var newNode = documment.createElement("div");
     newNode.classList.add("frame");
     newNode.id = "frame"+toAdd;
+    newNode.onclick=produce(toAdd);
 
     //Name
     var letterNode = document.createElement("div");
     letterNode.classList.add("name");
-    var letterText = document.createTextNode("Test");
+    var letterText = document.createTextNode("Letter"+toAdd);
     letterNode.appendChild(letterText);
 
     //Amount
