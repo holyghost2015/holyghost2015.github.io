@@ -39,7 +39,7 @@ var produce = function(caller){
         Amount[caller-1]-=10;
         Amount[caller]+=AmountToProd[caller];
     }
-    //testForUnlock();
+    testForUnlock();
     setDisplay();
 }
 
@@ -115,7 +115,7 @@ onload = function(){
 
 var update = function(){
     calculate();
-    //testForUnlock();
+    testForUnlock();
     setDisplay();
     setCookie();
 }
