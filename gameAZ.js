@@ -11,7 +11,7 @@ var cost = function(caller){
     return amount*amountBuy + ((amountBuy +1)*amountBuy)/2;
 }
 
-var buy = function(event, caller) {
+var buy = function(caller, event) {
     event.stopPropagation();
     if(canbuy(caller)){
         Amount[caller+1] -= cost(caller);
@@ -19,7 +19,7 @@ var buy = function(event, caller) {
     }
 
 }
-var buyall = function(event, caller) {
+var buyall = function(caller, event) {
     event.stopPropagation();
 }
 
