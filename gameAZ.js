@@ -11,7 +11,7 @@ var cost = function(caller){
     return amount*amountBuy + ((amountBuy +1)*amountBuy)/2;
 }
 
-var buy = function(caller) {
+var buy = function(caller, event) {
     event.stopPropagation();
     if(canbuy(caller)){
         Amount[caller+1] -= cost(caller);
@@ -19,7 +19,7 @@ var buy = function(caller) {
     }
 
 }
-var buyall = function(caller) {
+var buyall = function(caller, event) {
     event.stopPropagation();
 }
 
@@ -59,7 +59,6 @@ var calculate = function(){
         if(AmountProducers[i]>0){
             if(i==0){
                 Amount[0]+=AmountToProd[0]*AmountProducers[0];
-                console.log("Sollte Produziert haben");
             } else if(Amount[i-1]>=(AmountProducers[i]*10)){
                 Amount[i-1] -= AmountProducers[i]*10;
                 Amount[i] += AmountToProd[0]*AmountProducers[0];
@@ -151,10 +150,11 @@ var add = function(toAdd){
     buyNode.classList.add("buy");
     var buyButton = document.createElement("button");
     buyButton.type="button";
-    //buyButton.onclick=buy(event, toAdd);
+    buyButton.onclick=buy(toAdd, event);
+    
     var buyAllButton = document.createElement("button");
     buyAllButton.type="button";
-    //buyAllButton.onclick=buyAll(event, toAdd);
+    buyAllButton.onclick=buyAll(toAdd, event);
 
     buyNode.appendChild(buyButton);
     buyNode.appendChild(buyAllButton);
