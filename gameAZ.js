@@ -11,7 +11,7 @@ var cost = function(caller){
     return amount*amountBuy + ((amountBuy +1)*amountBuy)/2;
 }
 
-var buy = function(caller, event) {
+var buy = function(caller) {
     event.stopPropagation();
     if(canbuy(caller)){
         Amount[caller+1] -= cost(caller);
@@ -19,7 +19,7 @@ var buy = function(caller, event) {
     }
 
 }
-var buyall = function(caller, event) {
+var buyall = function(caller) {
     event.stopPropagation();
 }
 
@@ -130,8 +130,6 @@ var add = function(toAdd){
     var newNode = document.createElement("div");
     newNode.classList.add("frame");
     newNode.id = "frame"+toAdd;
-    //newNode.onclick=produce(toAdd);
-    newNode.addEventListener("click", produce(toAdd));
 
     //Name
     var letterNode = document.createElement("div");
@@ -151,13 +149,11 @@ var add = function(toAdd){
     buyNode.classList.add("buy");
     var buyButton = document.createElement("button");
     buyButton.type="button";
-    //buyButton.onclick=buy(toAdd, event);
-    buyButton.addEventListener("click", buy(toAdd));
+    buyButton.classList.add("buyFix");
     
     var buyAllButton = document.createElement("button");
     buyAllButton.type="button";
-    //buyAllButton.onclick=buyAll(toAdd, event);
-    buyAllButton.addEventListener("click", buyAll(toAdd));
+    buyAllButton.classList.add("buyAll");
 
     buyNode.appendChild(buyButton);
     buyNode.appendChild(buyAllButton);
@@ -169,5 +165,13 @@ var add = function(toAdd){
 
     //append to html
     var lastNode = document.getElementById("frame"+(toAdd-1));
-    lastNode.insertAdjacentElement("afterend", newNode);    
+    lastNode.insertAdjacentElement("afterend", newNode);
+
+    //add onclick-event-handling
+    var newNodeRead = document.getElementById("frame"+toAdd);
+    newNodeRead.addEventListener("click", produce(toAdd));
+    var buyButtonRead = document.getElementById("frame"+toAdd).querySelector(".buyFix");
+    buyButtonRead.addEventListener("click", buy(toAdd));
+    var buyAllButtonRead = document.getelementById("frame"+toAdd).querySelector(".buyAll");
+    buyAllButtonRead.addEventListener("click", buyAll(toAdd));
 }
