@@ -118,7 +118,7 @@ var update = function(){
     setDisplay();
     setCookie();
 }
-
+/*
 var testForUnlock = function() {
     if(Amount[last]>=10){
         last++;
@@ -175,3 +175,4 @@ var add = function(toAdd){
     var buyAllButtonRead = document.getelementById("frame"+toAdd).querySelector(".buyAll");
     buyAllButtonRead.addEventListener("click", buyAll(toAdd));
 }
+*/
