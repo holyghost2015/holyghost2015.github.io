@@ -82,7 +82,7 @@ var setDisplay = function(){
         }
         field.textContent = content;
         position++;
-        field = document.getElementById("Amount" + position);
+        field = document.getElementById("amount" + position);
     }
 }
 
