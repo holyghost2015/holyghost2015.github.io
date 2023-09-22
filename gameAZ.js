@@ -119,7 +119,7 @@ var update = function(){
     setDisplay();
     setCookie();
 }
-/*
+
 var testForUnlock = function() {
     if(Amount[last]>=10){
         last++;
@@ -172,8 +172,7 @@ var add = function(toAdd){
     var newNodeRead = document.getElementById("frame"+toAdd);
     newNodeRead.addEventListener("click", produce(toAdd));
     var buyButtonRead = document.getElementById("frame"+toAdd).querySelector(".buyFix");
-    buyButtonRead.addEventListener("click", buy(toAdd));
+    buyButtonRead.addEventListener("click", function(event){buy(toAdd, event);});
     var buyAllButtonRead = document.getelementById("frame"+toAdd).querySelector(".buyAll");
-    buyAllButtonRead.addEventListener("click", buyAll(toAdd));
+    buyAllButtonRead.addEventListener("click", function(event){buyAll(toAdd, event);});
 }
-*/
