@@ -133,7 +133,7 @@ var add = function(toAdd){
     newNode.classList.add("frame");
     newNode.id = "frame"+toAdd;
     //newNode.addEventListener("click", produce(toAdd));
-    newNode.onclick=produce(toAdd);
+    //newNode.onclick=produce(toAdd);
 
     //Name
     var letterNode = document.createElement("div");
