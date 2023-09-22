@@ -73,7 +73,7 @@ var calculate = function(){
 }
 
 var setDisplay = function(){
-    var field = document.getElementById("Amount0");
+    var field = document.getElementById("amount0");
     var position = 0;
     while(field != undefined){
         var content = Amount[position];
