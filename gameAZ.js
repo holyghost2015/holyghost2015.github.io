@@ -63,7 +63,7 @@ var calculate = function(){
                 Amount[0]+=AmountToProd[0]*AmountProducers[0];
             } else if(Amount[i-1]>=(AmountProducers[i]*10)){
                 Amount[i-1] -= AmountProducers[i]*10;
-                Amount[i] += AmountToProd[0]*AmountProducers[0];
+                Amount[i] += AmountToProd[i]*AmountProducers[i];
             } else {
                 Amount[i] += Math.floor(Amount[i-1]/10)*AmountToProd[i];
                 Amount[i-1]=Amount[i-1]%10;
@@ -132,7 +132,8 @@ var add = function(toAdd){
     var newNode = document.createElement("div");
     newNode.classList.add("frame");
     newNode.id = "frame"+toAdd;
-    newNode.addEventListener("click", produce(toAdd));
+    //newNode.addEventListener("click", produce(toAdd));
+    newNode.onclick=produce(toAdd);
 
     //Name
     var letterNode = document.createElement("div");
