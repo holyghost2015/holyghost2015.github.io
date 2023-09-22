@@ -131,7 +131,7 @@ var add = function(toAdd){
     newNode.classList.add("frame");
     newNode.id = "frame"+toAdd;
     //newNode.onclick=produce(toAdd);
-    newNode.addEventListener(click, produce(toAdd));
+    newNode.addEventListener("click", produce(toAdd));
 
     //Name
     var letterNode = document.createElement("div");
@@ -152,12 +152,12 @@ var add = function(toAdd){
     var buyButton = document.createElement("button");
     buyButton.type="button";
     //buyButton.onclick=buy(toAdd, event);
-    buyButton.addEventListener(click, buy(toAdd));
+    buyButton.addEventListener("click", buy(toAdd));
     
     var buyAllButton = document.createElement("button");
     buyAllButton.type="button";
     //buyAllButton.onclick=buyAll(toAdd, event);
-    buyAllButton.addEventListener(click, buyAll(toAdd));
+    buyAllButton.addEventListener("click", buyAll(toAdd));
 
     buyNode.appendChild(buyButton);
     buyNode.appendChild(buyAllButton);
