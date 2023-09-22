@@ -17,10 +17,11 @@ var buy = function(caller, event) {
         Amount[caller+1] -= cost(caller);
         AmountProducers[caller] += AmountToBuy[caller];
     }
-
+    setDisplay();
 }
 var buyall = function(caller, event) {
     event.stopPropagation();
+    setDisplay();
 }
 
 var canbuy = function(caller){
@@ -148,15 +149,15 @@ var add = function(toAdd){
     //Buttons
     var buyNode = document.createElement("div");
     buyNode.classList.add("buy");
+    
     var buyButton = document.createElement("button");
-    buyButton.type="button";
     buyButton.classList.add("buyFix");
     buyButton.addEventListener("click", function(event){buy(toAdd, event);});
     
     var buyAllButton = document.createElement("button");
-    buyAllButton.type="button";
     buyAllButton.classList.add("buyAll");
-    buyAllButton.addEventListener("click", function(event){buyAll(toAdd, event);});
+    //buyAllButton.addEventListener("click", function(event){buyAll(toAdd, event);});
+    buyAllButton.addEventListener("click", function(event){alert("It works: " + event);});
 
     buyNode.appendChild(buyButton);
     buyNode.appendChild(buyAllButton);
@@ -169,14 +170,4 @@ var add = function(toAdd){
     //append to html
     var lastNode = document.getElementById("frame"+(toAdd-1));
     lastNode.insertAdjacentElement("afterend", newNode);
-    
-    /*
-    //add onclick-event-handling
-    var newNodeRead = document.getElementById("frame"+toAdd);
-    newNodeRead.addEventListener("click", produce(toAdd));
-    var buyButtonRead = document.getElementById("frame"+toAdd).querySelector(".buyFix");
-    buyButtonRead.addEventListener("click", function(event){buy(toAdd, event);});
-    var buyAllButtonRead = document.getelementById("frame"+toAdd).querySelector(".buyAll");
-    buyAllButtonRead.addEventListener("click", function(event){buyAll(toAdd, event);});
-    */
 }
