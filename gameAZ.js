@@ -56,6 +56,7 @@ var initialize = function(){
 
 var calculate = function(){
     for(var i=0; i<26; i++){
+        Amount[i]=+Amount[i];
         if(AmountProducers[i]>0){
             if(i==0){
                 Amount[0]+=AmountToProd[0]*AmountProducers[0];
