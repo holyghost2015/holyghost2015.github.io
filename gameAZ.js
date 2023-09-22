@@ -114,7 +114,7 @@ onload = function(){
 
 var update = function(){
     calculate();
-    testForUnlock();
+    //testForUnlock();
     setDisplay();
     setCookie();
 }
