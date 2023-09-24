@@ -2,6 +2,7 @@ var Amount = [];
 var AmountToBuy = [];
 var AmountToProd = [];
 var AmountProducers = [];
+var AmountBonus = [];
 var last;
 
 
@@ -98,13 +99,18 @@ var setCookie = function(){
 
 var readCookie = function(){
     var Read = [];
-    var Amountread = [];
+    var ReadValue = [];
+    var ReadAmount = [];
     cook = document.cookie;
     Read = cook.split("=")
     if(Read[1]==undefined){Read[1]="";}
-    AmountRead = Read[1].split(" ");
-    for(var i=0; i<AmountRead.length; i++){
-        Amount[i]=AmountRead[i];
+    ReadValue = Read[1].split("I");
+    for(var i=0; i<6; i++){
+        if(ReadValue[i]==undefined){ReadValue[i]="";}
+    }
+    ReadAmount = ReadValue[0].split(" ");
+    for(var i=0; i<ReadAmount.length; i++){
+        Amount[i]=ReadAmount[i];
     }
 }
 
