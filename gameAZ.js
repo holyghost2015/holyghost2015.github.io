@@ -25,6 +25,7 @@ var buy = function(caller, event) {
 }
 var buyall = function(caller, event) {
     event.stopPropagation();
+    Amount[caller] = +Amount[caller] + 1000;
     setDisplay();
 }
 
@@ -54,7 +55,7 @@ var initialize = function(){
         AmountToBuy[i]=+1;
         AmountToProd[i]=+1;
         AmountProducers[i]=+0;
-        if(i<6){Amount[i]=100;}
+        AmountBonus[i]=+0;
     }
     last = +0;
     lastUnlocked = +0;
@@ -204,8 +205,8 @@ var add = function(toAdd){
     
     var buyAllButton = document.createElement("button");
     buyAllButton.classList.add("buyAll");
-    //buyAllButton.addEventListener("click", function(event){buyAll(toAdd, event);});
-    buyAllButton.addEventListener("click", function(event){alert("It works: " + event);});
+    buyAllButton.addEventListener("click", function(event){buyAll(toAdd, event);});
+    //buyAllButton.addEventListener("click", function(event){alert("It works: " + event);});
 
     buyNode.appendChild(buyButton);
     buyNode.appendChild(buyAllButton);
