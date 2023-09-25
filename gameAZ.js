@@ -101,7 +101,6 @@ var setDisplay = function(){
         field.textContent = content;
 
         var frameToColor =document.getElementById("frame" + position);
-        console.log(frameToColor);
         if(Running[position]){
             frameToColor.classList.add("enabled");
             frameToColor.classList.remove("disabled");
