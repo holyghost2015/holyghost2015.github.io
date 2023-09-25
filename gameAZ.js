@@ -13,6 +13,9 @@ var cost = function(caller){
 }
 
 var buy = function(caller, event) {
+    Amount[caller+1] = +Amount[caller+1];
+    AmountProducers[caller] = +AmountProducers[caller]
+    AmountToBuy[caller] = +AmountToBuy[caller]
     event.stopPropagation();
     if(canbuy(caller)){
         Amount[caller+1] -= cost(caller);
@@ -53,7 +56,7 @@ var initialize = function(){
         AmountProducers[i]=+0;
         
     }
-    last = 1;
+    last = +1;
 }
 
 var calculate = function(){
