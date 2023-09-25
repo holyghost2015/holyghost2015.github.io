@@ -240,8 +240,8 @@ var add = function(toAdd){
     pauseNode.classList.add("pause");
 
     var pauseButton = document.createElement("button");
-    buyButton.classList.add("pause");
-    buyButton.addEventListener("click", function(event){pause(toAdd, event);});
+    pauseButton.classList.add("pause");
+    pauseButton.addEventListener("click", function(event){pause(toAdd, event);});
 
     pauseNode.appendChild(pauseButton);
     
