@@ -224,15 +224,24 @@ var add = function(toAdd){
     var buyAllButton = document.createElement("button");
     buyAllButton.classList.add("buyAll");
     buyAllButton.addEventListener("click", function(event){buyAll(toAdd, event);});
-    //buyAllButton.addEventListener("click", function(event){alert("It works: " + event);});
 
     buyNode.appendChild(buyButton);
     buyNode.appendChild(buyAllButton);
 
+    var pauseNode = document.createElement("div");
+    pauseNode.classList.add("pause");
+
+    var pauseButton = document.createElement("button");
+    buyButton.classList.add("pause");
+    buyButton.addEventListener("click", function(event){pause(toAdd, event);});
+
+    pauseNode.appendChild(pauseButton);
+    
     //insert in main node
     newNode.appendChild(letterNode);
     newNode.appendChild(amountNode);
     newNode.appendChild(buyNode);
+    newNode.appendChild(pauseNode);
 
     //append to html
     var lastNode = document.getElementById("frame"+(toAdd-1));
