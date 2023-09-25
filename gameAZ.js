@@ -10,6 +10,14 @@ var Running = []
 var pause = function(caller, event){
     event.stopPropagation();
     Running[caller] = !Running[caller];
+    var toggled = document.getElementById("frame"+caller);
+    if(Running[caller]){
+        toggled.classList.add("disabled");
+        toggled.classList.remove("enabled");
+    }else{
+        toggled.classList.add("enabled");
+        toggled.classList.remove("disabled");
+    }
 }
 
 var cost = function(caller){
