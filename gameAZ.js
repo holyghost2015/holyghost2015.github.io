@@ -145,6 +145,7 @@ var readCookie = function(){
 onload = function(){
     initialize();
     readCookie();
+    setDisplay();
     this.setInterval(update, 1000);
 }
 
@@ -159,6 +160,7 @@ var loadUnlocked = function(lastUnlocked){
     for(var i=1; i<=lastUnlocked; i++){
         add(i);
     }
+    last = lastUnlocked;
 }
 
 var testForUnlock = function() {
