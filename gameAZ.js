@@ -47,10 +47,10 @@ var produce = function(caller){
 
 var initialize = function(){
     for(var i=0; i<26; i++){
-        Amount[i]=0;
-        AmountToBuy[i]=1;
-        AmountToProd[i]=1;
-        AmountProducers[i]=0;
+        Amount[i]=+0;
+        AmountToBuy[i]=+1;
+        AmountToProd[i]=+1;
+        AmountProducers[i]=+0;
         
     }
     last = 1;
