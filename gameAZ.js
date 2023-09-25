@@ -102,13 +102,14 @@ var setDisplay = function(){
         position++;
         field = document.getElementById("amount" + position);
 
-        var frame =document.getElementById("frame" + position);
+        var frameToColor =document.getElementById("frame" + position);
+        console.log(frameToColor);
         if(Running[position]){
-            frame.classList.add("enabled");
-            frame.classList.remove("disabled");
+            frameToColor.classList.add("enabled");
+            frameToColor.classList.remove("disabled");
         }else{
-            frame.classList.add("disabled");
-            frame.classList.remove("enabled");
+            frameToColor.classList.add("disabled");
+            frameToColor.classList.remove("enabled");
     }
     }
 }
