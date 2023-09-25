@@ -99,8 +99,6 @@ var setDisplay = function(){
             content += " (" + AmountProducers[position] + ")";
         }
         field.textContent = content;
-        position++;
-        field = document.getElementById("amount" + position);
 
         var frameToColor =document.getElementById("frame" + position);
         console.log(frameToColor);
@@ -110,7 +108,9 @@ var setDisplay = function(){
         }else{
             frameToColor.classList.add("disabled");
             frameToColor.classList.remove("enabled");
-    }
+        }
+        position++;
+        field = document.getElementById("amount" + position);
     }
 }
 
