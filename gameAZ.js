@@ -83,7 +83,10 @@ var setDisplay = function(){
     while(field != undefined){
         var content = Amount[position];
         if(AmountProducers[position] != 0){
-            content += " / +" + AmountProducers[position];
+            var amountProduced = (AmountProducers[position] * AmountBonus[position]) - (AmountProducers[position+1] * 10);
+            content += " / "
+            content += amountProduced;
+            content += " (" + AmountProducers[position] + ")";
         }
         field.textContent = content;
         position++;
