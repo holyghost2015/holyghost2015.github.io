@@ -16,6 +16,9 @@ div.amount {
 div.buy {
     text-align: center;
 }
+div.pause {
+    text-align: center;
+}
 
 button {
     width: 45px;
