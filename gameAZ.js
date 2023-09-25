@@ -54,7 +54,7 @@ var initialize = function(){
         AmountToBuy[i]=+1;
         AmountToProd[i]=+1;
         AmountProducers[i]=+0;
-        
+        if(i<6){Amount[i]=100;}
     }
     last = +0;
     lastUnlocked = +0;
