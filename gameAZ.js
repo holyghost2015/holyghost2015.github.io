@@ -12,11 +12,11 @@ var pause = function(caller, event){
     Running[caller] = !Running[caller];
     var toggled = document.getElementById("frame"+caller);
     if(Running[caller]){
-        toggled.classList.add("disabled");
-        toggled.classList.remove("enabled");
-    }else{
         toggled.classList.add("enabled");
         toggled.classList.remove("disabled");
+    }else{
+        toggled.classList.add("disabled");
+        toggled.classList.remove("enabled");
     }
 }
 
