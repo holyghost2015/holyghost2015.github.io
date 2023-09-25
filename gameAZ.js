@@ -10,14 +10,7 @@ var Running = []
 var pause = function(caller, event){
     event.stopPropagation();
     Running[caller] = !Running[caller];
-    var toggled = document.getElementById("frame"+caller);
-    if(Running[caller]){
-        toggled.classList.add("enabled");
-        toggled.classList.remove("disabled");
-    }else{
-        toggled.classList.add("disabled");
-        toggled.classList.remove("enabled");
-    }
+    setDisplay();
 }
 
 var cost = function(caller){
@@ -108,6 +101,14 @@ var setDisplay = function(){
         field.textContent = content;
         position++;
         field = document.getElementById("amount" + position);
+
+        if(Running[position]){
+            field.classList.add("enabled");
+            field.classList.remove("disabled");
+        }else{
+            field.classList.add("disabled");
+            field.classList.remove("enabled");
+    }
     }
 }
 
