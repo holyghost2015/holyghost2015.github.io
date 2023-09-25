@@ -1,8 +1,8 @@
 var Amount = [];
-var AmountToBuy = [];
-var AmountToProd = [];
 var AmountProducers = [];
 var AmountBonus = [];
+var AmountToBuy = [];
+var AmountToProd = [];
 var last;
 
 
@@ -92,6 +92,23 @@ var setCookie = function(){
     for(var i=0; i<26; i++){
         cook += Amount[i] + " ";
     }
+    cook += "I";
+    for(var i=0; i<26; i++){
+        cook += AmountProducers[i] + " ";
+    }
+    cook += "I";
+    for(var i=0; i<26; i++){
+        cook += AmountBonus[i] + " ";
+    }
+    cook += "I";
+    for(var i=0; i<26; i++){
+        cook += AmountToBuy[i] + " ";
+    }
+    cook += "I";
+    for(var i=0; i<26; i++){
+        cook += AmountToProd[i] + " ";
+    }
+    cook += "I" + last;
     cook += "; expires=Tue, 19 Jan 2038 03:14:07 GMT"
     document.cookie = cook;
     console.log(document.cookie);
@@ -111,6 +128,10 @@ var readCookie = function(){
     ReadAmount = ReadValue[0].split(" ");
     for(var i=0; i<ReadAmount.length; i++){
         Amount[i]=ReadAmount[i];
+    }
+    ReadAmount = ReadValue[1].split(" ");
+    for(var i=0; i<ReadAmount.length; i++){
+        AmountProducers[i]=ReadAmount[i];
     }
 }
 
