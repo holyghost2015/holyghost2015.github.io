@@ -4,6 +4,7 @@ var AmountBonus = [];
 var AmountToBuy = [];
 var AmountToProd = [];
 var last;
+var Boni = [1, 1, 1, 2, 3, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 10, 10, 11, 11, 11, 11, 12, 12];
 
 
 var cost = function(caller){
@@ -55,7 +56,7 @@ var initialize = function(){
         AmountToBuy[i]=+1;
         AmountToProd[i]=+1;
         AmountProducers[i]=+0;
-        AmountBonus[i]=+0;
+        AmountBonus[i]=+1;
     }
     last = +0;
     lastUnlocked = +0;
@@ -160,17 +161,27 @@ var update = function(){
     setCookie();
 }
 
+var calculateBoni = function(){
+    var difference
+    for(var i=0; i<last; i++){
+        difference = last-i;
+        AmountBonus[i] = Boni[difference];
+    }
+}
+
 var loadUnlocked = function(lastUnlocked){
     for(var i=1; i<=lastUnlocked; i++){
         add(i);
     }
     last = lastUnlocked;
+    calculateBoni();
 }
 
 var testForUnlock = function() {
     if(Amount[last]>=10){
         last++;
         add(last);
+    calculateBoni();
     }
 }
 
