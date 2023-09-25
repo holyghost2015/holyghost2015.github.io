@@ -67,12 +67,12 @@ var calculate = function(){
         Amount[i]=+Amount[i];
         if(AmountProducers[i]>0){
             if(i==0){
-                Amount[0]+=AmountToProd[0]*AmountProducers[0];
+                Amount[0]+=AmountToProd[0]*AmountProducers[0]*AmountBonus[0];
             } else if(Amount[i-1]>=(AmountProducers[i]*10)){
                 Amount[i-1] -= AmountProducers[i]*10;
-                Amount[i] += AmountToProd[i]*AmountProducers[i];
+                Amount[i] += AmountToProd[i]*AmountProducers[i]*AmountBonus[i];
             } else {
-                Amount[i] += Math.floor(Amount[i-1]/10)*AmountToProd[i];
+                Amount[i] += Math.floor(Amount[i-1]/10)*AmountToProd[i]*AmountBonus[i];
                 Amount[i-1]=Amount[i-1]%10;
             }
         }
@@ -87,6 +87,7 @@ var setDisplay = function(){
         if(AmountProducers[position] != 0){
             var amountProduced = (AmountProducers[position] * AmountBonus[position]) - (AmountProducers[position+1] * 10);
             content += " / "
+            if(amountProduced>0){content+="+";}
             content += amountProduced;
             content += " (" + AmountProducers[position] + ")";
         }
