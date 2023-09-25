@@ -155,7 +155,7 @@ var update = function(){
     setCookie();
 }
 
-var loadUnlocked = function(var lastUnlocked){
+var loadUnlocked = function(lastUnlocked){
     for(var i=1; i<=lastUnlocked; i++){
         add(i);
     }
