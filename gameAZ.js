@@ -5,7 +5,12 @@ var AmountToBuy = [];
 var AmountToProd = [];
 var last;
 var Boni = [1, 1, 1, 2, 3, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 10, 10, 11, 11, 11, 11, 12, 12];
+var Running = []
 
+var pause = function(caller, event){
+    event.stopPropagation();
+    Running[caller] = !Running[caller];
+}
 
 var cost = function(caller){
     var amount = AmountProducers[caller];
@@ -14,10 +19,10 @@ var cost = function(caller){
 }
 
 var buy = function(caller, event) {
+    event.stopPropagation();
     Amount[caller+1] = +Amount[caller+1];
     AmountProducers[caller] = +AmountProducers[caller]
     AmountToBuy[caller] = +AmountToBuy[caller]
-    event.stopPropagation();
     if(canbuy(caller)){
         Amount[caller+1] -= cost(caller);
         AmountProducers[caller] += AmountToBuy[caller];
@@ -57,6 +62,7 @@ var initialize = function(){
         AmountToProd[i]=+1;
         AmountProducers[i]=+0;
         AmountBonus[i]=+1;
+        Running[i]=true;
     }
     last = +0;
     lastUnlocked = +0;
@@ -65,7 +71,7 @@ var initialize = function(){
 var calculate = function(){
     for(var i=0; i<26; i++){
         Amount[i]=+Amount[i];
-        if(AmountProducers[i]>0){
+        if(AmountProducers[i]>0 && Running[i]){
             if(i==0){
                 Amount[0]+=AmountToProd[0]*AmountProducers[0]*AmountBonus[0];
             } else if(Amount[i-1]>=(AmountProducers[i]*10)){
@@ -85,7 +91,7 @@ var setDisplay = function(){
     while(field != undefined){
         var content = Amount[position];
         if(AmountProducers[position] != 0){
-            var amountProduced = (AmountProducers[position] * AmountBonus[position]) - (AmountProducers[position+1] * 10);
+            var amountProduced = (running[position] ? (AmountProducers[position] * AmountToProd[position] * AmountBonus[position]) : 0) - (running[position+1] ? (AmountProducers[position+1] * 10) : 0);
             content += " / "
             if(amountProduced>0){content+="+";}
             content += amountProduced;
