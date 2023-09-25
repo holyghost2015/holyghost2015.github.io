@@ -56,7 +56,8 @@ var initialize = function(){
         AmountProducers[i]=+0;
         
     }
-    last = +1;
+    last = +0;
+    lastUnlocked = +0;
 }
 
 var calculate = function(){
@@ -136,6 +137,9 @@ var readCookie = function(){
     for(var i=0; i<ReadAmount.length; i++){
         AmountProducers[i]=ReadAmount[i];
     }
+
+    var lastUnlocked = ReadValue[5];
+    loadUnlocked(lastUnlocked);
 }
 
 onload = function(){
@@ -149,6 +153,12 @@ var update = function(){
     testForUnlock();
     setDisplay();
     setCookie();
+}
+
+var loadUnlocked = function(var lastUnlocked){
+    for(var i=1; i<=lastUnlocked; i++){
+        add(i);
+    }
 }
 
 var testForUnlock = function() {
